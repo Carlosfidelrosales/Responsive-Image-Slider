@@ -402,7 +402,7 @@ function initializeSlider() {
 // });
 
 
-document.querySelectorAll(".js-gig-favorite-btn").forEach(function (button) {
+document.querySelectorAll(".js-gig-menu-btn").forEach(function (button) {
   var popup = button.nextElementSibling;
   popup.style.display = "none";
 
