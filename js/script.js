@@ -362,6 +362,70 @@ function initializeSlider() {
   swiper = new Swiper(".slide-content", swiperConfig);
 }
 
+
+
+// document.querySelectorAll(".js-gig-favorite-btn").forEach(function (button) {
+//   button.addEventListener("click", function (event) {
+//     var popup = event.currentTarget.nextElementSibling;
+//     popup.style.display = "block";
+
+//     // Hide the popup when clicking outside
+//     document.addEventListener("click", function hidePopup(e) {
+//       if (!popup.contains(e.target) && !button.contains(e.target)) {
+//         popup.style.display = "none";
+//         document.removeEventListener("click", hidePopup);
+//       }
+//     });
+//   });
+// });
+
+
+// document.querySelectorAll(".js-gig-favorite-btn").forEach(function (button) {
+//   button.addEventListener("click", function (event) {
+//     var popup = event.currentTarget.nextElementSibling;
+//     if (popup.style.display === "block") {
+//       popup.style.display = "none";
+//     } else {
+//       popup.style.display = "block";
+
+//       // Hide the popup when clicking outside
+//       var hidePopup = function (e) {
+//         if (!popup.contains(e.target) && !button.contains(e.target)) {
+//           popup.style.display = "none";
+//           document.removeEventListener("click", hidePopup);
+//         }
+//       };
+
+//       document.addEventListener("click", hidePopup);
+//     }
+//   });
+// });
+
+
+document.querySelectorAll(".js-gig-favorite-btn").forEach(function (button) {
+  var popup = button.nextElementSibling;
+  popup.style.display = "none";
+
+  button.addEventListener("click", function (event) {
+    if (popup.style.display === "block") {
+      popup.style.display = "none";
+    } else {
+      popup.style.display = "block";
+
+      // Hide the popup when clicking outside
+      var hidePopup = function (e) {
+        if (!popup.contains(e.target) && !button.contains(e.target)) {
+          popup.style.display = "none";
+          document.removeEventListener("click", hidePopup);
+        }
+      };
+
+      document.addEventListener("click", hidePopup);
+    }
+  });
+});
+
+
 // Initialize the slider on page load
 initializeSlider();
 
